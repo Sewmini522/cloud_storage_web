@@ -46,7 +46,8 @@ This project demonstrates a complete cloud application development workflow:
 
 **📋Steps - Azure Blob Storage Uploader**
 
-Part 1: Create VM on Azure
+**Part 1: Create VM on Azure**
+
 
 1.Login to Azure Portal
 
@@ -60,7 +61,9 @@ Part 1: Create VM on Azure
 
 6.Click Review + create → Create
 
-Part 2: Connect to VM
+
+**Part 2: Connect to VM**
+
 
 1.Copy VM's Public IP
 
@@ -72,13 +75,17 @@ Part 2: Connect to VM
 
 5.Login: azureuser
 
-Part 3: Setup Web Server
+
+**Part 3: Setup Web Server**
+
 
 sudo apt-get update
 
 sudo apt-get install apache2 -y
 
-Part 4: Open HTTP Port in Azure
+
+**Part 4: Open HTTP Port in Azure**
+
 
 1.Stop VM
 
@@ -86,7 +93,9 @@ Part 4: Open HTTP Port in Azure
 
 3.Start VM
 
-Part 5: Create Storage Account
+
+**Part 5: Create Storage Account**
+
 
 1.Go to Storage accounts → + Create
 
@@ -96,7 +105,9 @@ Part 5: Create Storage Account
 
 4.Click Review + create → Create
 
-Part 6: Create Container
+
+**Part 6: Create Container**
+
 
 1.Open Storage Account → Containers → + Container
 
@@ -104,7 +115,9 @@ Part 6: Create Container
 
 3.Click Create
 
-Part 7: Configure CORS
+
+**Part 7: Configure CORS**
+
 
 1.Storage Account → Resource sharing (CORS)
 
@@ -114,7 +127,9 @@ Part 7: Configure CORS
            Exposed headers: *
 3.Click Save
 
-Part 8: Generate SAS Token
+
+**Part 8: Generate SAS Token**
+
 
 1.Container uploads → Generate SAS
 
@@ -124,13 +139,17 @@ Part 8: Generate SAS Token
 
 4.Copy the SAS URL
 
-Part 9: Create Web Page on VM
+
+**Part 9: Create Web Page on VM**
+
 
 cd /var/www/html
 
 sudo nano index.html
 
-Part 10: Test!
+
+**Part 10: Test!**
+
 
 1.Open browser: http://<YOUR_VM_PUBLIC_IP>
 
@@ -139,14 +158,15 @@ Part 10: Test!
 3.Click Upload
 
 
-🎯 How It Works
+**🎯 How It Works**
+
 User Uploads File → JavaScript picks file → Azure Blob SDK called
         ↓
 SAS Token authenticates request → File uploaded directly to Blob Storage
         ↓
 Progress tracked in real-time → Success page displayed → File appears in container
 
-##ScreenShots
+**##ScreenShots**
 
 ![image](https://github.com/user/repo/assets/xxxx)<img width="1433" height="661" alt="Picture63" src="https://github.com/user-attachments/assets/e13b26e2-75d9-4b13-852f-721a7eb075e6" />
 
