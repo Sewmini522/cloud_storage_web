@@ -42,52 +42,72 @@ This project demonstrates a complete cloud application development workflow:
 | **SSH Client**         | PuTTY / PuTTYgen                           |
 
 
+
+
 **📋Steps - Azure Blob Storage Uploader**
 
 Part 1: Create VM on Azure
 
 1.Login to Azure Portal
+
 2.Go to Virtual Machines → + Create → Virtual Machine
+
 3.Fill: Name: my-vm / Image: Ubuntu 24.04 LTS / Size: Free tier / Username: azureuser / SSH public key (generate with PuTTYgen)
+
 4.Disk: Standard HDD
+
 5.Networking: Keep defaults
+
 6.Click Review + create → Create
 
 Part 2: Connect to VM
 
 1.Copy VM's Public IP
+
 2.Open PuTTY → Paste IP
+
 3.Go to: Connection → SSH → Auth → Browse (select private key)
+
 4.Click Open
+
 5.Login: azureuser
 
 Part 3: Setup Web Server
 
 sudo apt-get update
+
 sudo apt-get install apache2 -y
 
 Part 4: Open HTTP Port in Azure
 
 1.Stop VM
+
 2.Go to Networking → Add port 80 (HTTP)
+
 3.Start VM
 
 Part 5: Create Storage Account
 
 1.Go to Storage accounts → + Create
+
 2.Name: blobstorage123 (unique)
+
 3.Region: Same as VM
+
 4.Click Review + create → Create
 
 Part 6: Create Container
 
 1.Open Storage Account → Containers → + Container
+
 2.Name: uploads
+
 3.Click Create
 
 Part 7: Configure CORS
 
 1.Storage Account → Resource sharing (CORS)
+
 2.Add rule:Allowed origins: *
            Allowed methods: GET, PUT, POST, DELETE, HEAD
            Allowed headers: *
@@ -97,19 +117,25 @@ Part 7: Configure CORS
 Part 8: Generate SAS Token
 
 1.Container uploads → Generate SAS
+
 2.Permissions: ✓ Read ✓ Write ✓ Create ✓ List
+
 3.Click Generate SAS token and URL
+
 4.Copy the SAS URL
 
 Part 9: Create Web Page on VM
 
 cd /var/www/html
+
 sudo nano index.html
 
 Part 10: Test!
 
 1.Open browser: http://<YOUR_VM_PUBLIC_IP>
+
 2.Drag & drop files
+
 3.Click Upload
 
 
